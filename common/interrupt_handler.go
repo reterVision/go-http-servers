@@ -20,7 +20,7 @@ func (ih *interruptHandler) Wait() {
 }
 
 // NewInterruptHandler captures system signals
-func NewInterruptHandler() *interruptHandler {
+func NewInterruptHandler() InterruptHandler {
 	interruptChan := make(chan os.Signal, 1)
 	signal.Notify(interruptChan, signalsToCapture...)
 
