@@ -16,7 +16,7 @@ type interruptHandler struct {
 // Wait blocks and waits for predefined system signal
 func (ih *interruptHandler) Wait() {
 	<-ih.interruptChan
-	signal.Reset(signalsToCapture...)
+	signal.Stop(ih.interruptChan)
 }
 
 // NewInterruptHandler captures system signals
